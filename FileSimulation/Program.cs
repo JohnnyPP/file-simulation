@@ -12,6 +12,7 @@ namespace FileSimulation
         {
             Console.WriteLine("Hello World!");
             Console.WriteLine("Test");
+            FileSystemHelper.LoadImages();
             Console.ReadKey();
         }
     }
