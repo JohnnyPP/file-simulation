@@ -33,6 +33,12 @@ namespace FileSimulation
 
 		#endregion
 
+		private static class ImageNames 
+		{
+			public const string LeftImage = "_l.png";
+			public const string RightImage = "_r.png";
+		}
+
 		#region Methods
 
 		/// <summary>
@@ -65,13 +71,13 @@ namespace FileSimulation
 			string[] stringSeparators = new string[] { clickedPostfix };
 			string[] prefix = fileNameWithPath.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
 
-			if (clickedPostfix == "_r.png")
+			if (clickedPostfix == ImageNames.RightImage)
 			{
-				complementaryPostfix = "_l.png";
+				complementaryPostfix = ImageNames.LeftImage;
 			}
 			else
 			{
-				complementaryPostfix = "_r.png";
+				complementaryPostfix = ImageNames.RightImage; 
 			}
 
 			if (File.Exists(prefix[0] + complementaryPostfix))
