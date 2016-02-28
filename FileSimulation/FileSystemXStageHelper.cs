@@ -22,7 +22,7 @@ namespace FileSimulation
     /// <summary>
     /// Helper class which contains static helper methods for accessing  the file system.
     /// </summary>
-    public class FileSystemHelper
+    public class FileSystemXStageHelper : FileSystemHelper
 	{
 		#region Fields
 
@@ -38,67 +38,18 @@ namespace FileSimulation
 		/// <summary>
 		/// Load (copy) images.
 		/// </summary>
-		public static void LoadImages()
+		public static new void LoadImages()
 		{
 			string sourceFileNameAndPath = ChooseFolderWithImages();
 			if (sourceFileNameAndPath != null)
 			{
 				string sourcePath = Path.GetDirectoryName(sourceFileNameAndPath);
 				List<string> imageList = FindImagesWithPattern(sourceFileNameAndPath, sourcePath);
-				CreateFileWithNumberOfImages(imageList, _NewDirectory);
 				CopyImages(imageList, sourcePath, _NewDirectory);
 			}
 		}
-
-		/// <summary>
-		/// Open file dialog window and let the user select the file
-		/// </summary>
-		/// <returns>File name with a path</returns>
-		public static string ChooseFolderWithImages()
-		{
-			string sourceFileNameAndPath = null;
-            var dlg = new OpenFileDialog() 
-            {
-				DefaultExt = ".png",
-				Filter = "Portable network graphics files (*.png)|*.png",
-				RestoreDirectory = true
-			};
-            // Show open file dialog box
-
-			if (dlg.ShowDialog() == DialogResult.OK)
-			{
-				sourceFileNameAndPath = dlg.FileName;
-			}
-			return sourceFileNameAndPath;
-		}
-
-		/// <summary>
-		/// Copy images from source path to destination path
-		/// </summary>
-		/// <param name="imageList">List with the image names to be copied</param>
-		/// <param name="sourcePath">Source path</param>
-		/// <param name="destinationPath">Destination path</param>
-		public static void CopyImages(IEnumerable<string> imageList, string sourcePath, string destinationPath)
-		{
-			try
-			{
-				foreach (string file in imageList)
-				{
-					// Remove path from the file name.
-					string fName = file.Substring(sourcePath.Length + 1);
-
-					// Use the Path.Combine method to safely append the file name to the path.
-					// Will overwrite if the destination file already exists.
-					File.Copy(Path.Combine(sourcePath, fName), Path.Combine(destinationPath, fName), true);
-				}
-			}
-			catch (Exception exception)
-			{
-				throw new Exception(exception.ToString());
-			}
-		}
-
-		/// <summary>
+		
+        /// <summary>
 		/// Finds file name patterns in the folder selected by the user. File name consists of Prefix_Postfix.png. 
 		/// In order to display the files one after another the files need to be PNG images 
 		/// and follow the pattern: Prefix_001.png, Prefix_002.png, Prefix_003.png to Prefix_999.png. 
@@ -190,21 +141,6 @@ namespace FileSimulation
 					return false;
 			}
 			return true;
-		}
-
-		/// <summary>
-		/// Creates helper txt file with the number of the images contained in _NewDirectory.
-		/// The number is the name of the created file. This file is used to decrease 
-		/// the time thread blocking in DMEOpticsMachine() in the IsCopyingDone() method. 
-		/// </summary>
-		/// <param name="imageList">List with the file files in the directory</param>
-		/// <param name="path">Path where the file should be stored</param>
-		private static void CreateFileWithNumberOfImages(List<string> imageList, string path)
-		{
-			string numberOfImages = imageList.Count.ToString();
-
-			TextWriter tw = new StreamWriter(path + numberOfImages + ".txt", true);
-			tw.Close();
 		}
 
 		#endregion

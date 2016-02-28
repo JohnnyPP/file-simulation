@@ -12,7 +12,8 @@ namespace FileSimulation
         static void Main(string[] args)
         {
             Console.WriteLine("Opening file dialog");
-            FileSystemHelper.LoadImages();
+            //FileSystemHelper.LoadImages();
+            FileSystemXStageHelper.LoadImages();
             Console.WriteLine("Done!");
             Console.ReadKey();
         }
