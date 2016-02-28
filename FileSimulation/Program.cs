@@ -8,11 +8,12 @@ namespace FileSimulation
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine("Test");
+            Console.WriteLine("Opening file dialog");
             FileSystemHelper.LoadImages();
+            Console.WriteLine("Done!");
             Console.ReadKey();
         }
     }

@@ -13,7 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Microsoft.Win32;
+using System.Windows.Forms;
 
 #endregion
 
@@ -57,7 +57,18 @@ namespace FileSimulation
 		private static string ChooseFolderWithImages()
 		{
 			string sourceFileNameAndPath = null;
+            var dlg = new OpenFileDialog() 
+            {
+				DefaultExt = ".png",
+				Filter = "Portable network graphics files (*.png)|*.png",
+				RestoreDirectory = true
+			};
+            // Show open file dialog box
 
+			if (dlg.ShowDialog() == DialogResult.OK)
+			{
+				sourceFileNameAndPath = dlg.FileName;
+			}
 			return sourceFileNameAndPath;
 		}
 
