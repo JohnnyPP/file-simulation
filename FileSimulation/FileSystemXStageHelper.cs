@@ -44,7 +44,7 @@ namespace FileSimulation
 			if (sourceFileNameAndPath != null)
 			{
 				string sourcePath = Path.GetDirectoryName(sourceFileNameAndPath);
-				List<string> imageList = FindImagesWithPattern(sourceFileNameAndPath, sourcePath);
+				List<string> imageList = FindImagesWithPattern(sourceFileNameAndPath);
 				CopyImages(imageList, sourcePath, _NewDirectory);
 			}
 		}
@@ -52,7 +52,7 @@ namespace FileSimulation
 		/// <summary>
 		/// Finds file name patterns in the folder selected by the user. File name consists of Prefix_Postfix.png. 
 		/// Clicked Postfix == *_r.png or *_l.png 
-		/// Clicked filename is splitted to Prefix and Postfix based on saved postfix
+		/// Clicked filename is split to Prefix and Postfix based on saved postfix
 		/// If file with complementary postfix exists both files are stored in the list
 		/// </summary>
 		/// <param name="fileNameWithPath">File name selected by the user</param>
