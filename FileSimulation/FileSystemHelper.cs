@@ -19,10 +19,10 @@ using System.Windows.Forms;
 
 namespace FileSimulation
 {
-    /// <summary>
-    /// Helper class which contains static helper methods for accessing  the file system.
-    /// </summary>
-    public class FileSystemHelper
+	/// <summary>
+	/// Helper class which contains static helper methods for accessing  the file system.
+	/// </summary>
+	public class FileSystemHelper
 	{
 		#region Fields
 
@@ -57,13 +57,13 @@ namespace FileSimulation
 		public static string ChooseFolderWithImages()
 		{
 			string sourceFileNameAndPath = null;
-            var dlg = new OpenFileDialog() 
-            {
+			var dlg = new OpenFileDialog() 
+			{
 				DefaultExt = ".png",
 				Filter = "Portable network graphics files (*.png)|*.png",
 				RestoreDirectory = true
 			};
-            // Show open file dialog box
+			// Show open file dialog box
 
 			if (dlg.ShowDialog() == DialogResult.OK)
 			{
