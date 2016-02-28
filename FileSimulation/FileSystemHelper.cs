@@ -1,8 +1,8 @@
 ﻿#region Copyright
 /* * * * * * * * * * * * * * * * * * * * * * * * * *
  * * File name :"FileSystemHelper.cs"
- * * Company   : Carl Zeiss IMT GmbH
- * * (c) Carl Zeiss 2016 , 2016
+ * * Company   : 
+ * * (c) 
  * * <author>JohnnyP</author>
  * * * * * * * * * * * * * * * * * * * * * * * * * * */
 #endregion

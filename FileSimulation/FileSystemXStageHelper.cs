@@ -1,8 +1,8 @@
 ﻿#region Copyright
 /* * * * * * * * * * * * * * * * * * * * * * * * * *
  * * File name :"FileSystemHelper.cs"
- * * Company   : Carl Zeiss IMT GmbH
- * * (c) Carl Zeiss 2016 , 2016
+ * * Company   : 
+ * * (c) 
  * * <author>JohnnyP</author>
  * * * * * * * * * * * * * * * * * * * * * * * * * * */
 #endregion
@@ -61,7 +61,6 @@ namespace FileSimulation
 		{
 			var imageList = new List<string>();
 			string complementaryPostfix;
-			var fileName = Path.GetFileName(fileNameWithPath);
 			string clickedPostfix = fileNameWithPath.Substring(fileNameWithPath.Length - 6);
 			string[] stringSeparators = new string[] { clickedPostfix };
 			string[] prefix = fileNameWithPath.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
