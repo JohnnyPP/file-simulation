@@ -93,6 +93,20 @@ namespace FileSimulation
 			return imageList;
 		}
 
+		/// <summary>
+		/// This should find prefix and both postfixes and put the result to dictionary
+		/// e.g. <LeftImage, path + 001_l.png> and <RightImage, path + 001_r.png>
+		/// If the DMEcommand == 0.0 then display LeftImage otherwise RightImage
+		/// </summary>
+		/// <param name="fileNameWithPath"></param>
+		/// <param name="DMECommand"></param>
+		/// <returns></returns>
+		private static Dictionary<string, string> FindImageToDisplay(string fileNameWithPath, string DMECommand)
+		{
+			var imageDictionary = new Dictionary<string, string>();
+
+			return imageDictionary;
+		}
 		#endregion
 	}
 }
